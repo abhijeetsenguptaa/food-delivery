@@ -4,6 +4,8 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const connection = require('./configs/connection');
 const userRoute = require('./routes/user.route');
+const restaurantRoute = require('./routes/restaurant.route');
+const orderRoute = require('./routes/order.route');
 
 
 class Server {
@@ -44,6 +46,8 @@ class Server {
 
     async handleRoutes() {
         this.app.use('/api', userRoute.getRouter());
+        this.app.use('/api', restaurantRoute.getRouter());
+        this.app.use('/api', orderRoute.getRouter())
     }
 
 
